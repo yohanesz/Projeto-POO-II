@@ -6,11 +6,14 @@ public class Lista implements DefaultEntitiesInterface{
 
     private int id_quadro;
     private int id_lista;
-    private String tituloLista;
+    private String titulo_lista;
 
-    public Lista(int id_quadro, String tituloLista) {
+    public Lista() {
+    }
+
+    public Lista(int id_quadro, String titulo_lista) {
         this.id_quadro = id_quadro;
-        this.tituloLista = tituloLista;
+        this.titulo_lista = titulo_lista;
     }
 
     public int getId() {
@@ -21,12 +24,12 @@ public class Lista implements DefaultEntitiesInterface{
         this.id_lista = id_lista;
     }
 
-    public String getTituloLista() {
-        return tituloLista;
+    public String getTitulo_lista() {
+        return titulo_lista;
     }
 
-    public void setTituloLista(String tituloLista) {
-        this.tituloLista = tituloLista;
+    public void setTitulo_lista(String titulo_lista) {
+        this.titulo_lista = titulo_lista;
     }
 
     public int getId_quadro() {
@@ -37,6 +40,12 @@ public class Lista implements DefaultEntitiesInterface{
         this.id_quadro = id_quadro;
     }
 
+    @Override
+    public String getTitulo() {
+        return titulo_lista;
+    }
+
+  
 
 
     

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<items>
+    <item xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="lista">
+        <id>1</id>
+        <id_quadro>1</id_quadro>
+        <titulo_lista>Pendentes</titulo_lista>
+    </item>
+    <item xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="lista">
+        <id>2</id>
+        <id_quadro>1</id_quadro>
+        <titulo_lista>Concluidos</titulo_lista>
+    </item>
+</items>

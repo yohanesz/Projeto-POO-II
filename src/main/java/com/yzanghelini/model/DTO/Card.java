@@ -8,25 +8,29 @@ public class Card implements DefaultEntitiesInterface {
 
     private int id_lista;
     private int id_card;
-	private String tituloCard;
+	private String titulo_card;
 	private String dataInicial;
 	private String dataEntrega;
 	private String horaEntrega;
 	
 	
-	//inserir data atual 
-    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-    String dataAtualFormatada = sdf.format(new java.util.Date());
-	
-	
-	public Card(int id_lista, String tituloCard, String dataInicial, String dataEntrega, String horaEntrega) {
+	public Card() {
+    
+    }
+
+	public Card(int id_lista, String titulo_card, String dataEntrega, String horaEntrega) {
         this.id_lista = id_lista;
-        this.tituloCard = tituloCard;
-        this.dataInicial = dataAtualFormatada;
+        this.titulo_card = titulo_card;
+        this.dataInicial = dataFormatada().toString();
         this.dataEntrega = dataEntrega;
         this.horaEntrega = horaEntrega;
     }
 
+    private String dataFormatada() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String dataAtualFormatada = sdf.format(new java.util.Date());
+        return dataAtualFormatada;
+    }
 
     public int getId() {
         return id_card;
@@ -38,13 +42,13 @@ public class Card implements DefaultEntitiesInterface {
     }
 
 
-    public String getTituloCard() {
-        return tituloCard;
+    public String getTitulo_card() {
+        return titulo_card;
     }
 
 
-    public void setTituloCard(String tituloCard) {
-        this.tituloCard = tituloCard;
+    public void setTitulo_card(String titulo_card) {
+        this.titulo_card = titulo_card;
     }
 
 
@@ -78,26 +82,6 @@ public class Card implements DefaultEntitiesInterface {
     }
 
 
-    public SimpleDateFormat getSdf() {
-        return sdf;
-    }
-
-
-    public void setSdf(SimpleDateFormat sdf) {
-        this.sdf = sdf;
-    }
-
-
-    public String getDataAtualFormatada() {
-        return dataAtualFormatada;
-    }
-
-
-    public void setDataAtualFormatada(String dataAtualFormatada) {
-        this.dataAtualFormatada = dataAtualFormatada;
-    }
-
-
     public int getId_lista() {
         return id_lista;
     }
@@ -107,5 +91,11 @@ public class Card implements DefaultEntitiesInterface {
         this.id_lista = id_lista;
     }
 
+    @Override
+    public String getTitulo() {
+        return titulo_card;
+    }
+
+ 
     
 }

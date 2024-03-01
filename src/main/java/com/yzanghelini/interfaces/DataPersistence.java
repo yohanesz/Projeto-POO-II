@@ -10,5 +10,7 @@ public interface DataPersistence<T extends DefaultEntitiesInterface>{
     void delete(int id);
     List<T> readAll();
     int getNextId();
+    Object[] autenticar(String nome, String senha);
+    int getIdByName(String nome);
     
 } 

@@ -5,26 +5,23 @@ import java.util.List;
 
 import com.yzanghelini.interfaces.DataPersistence;
 import com.yzanghelini.interfaces.PersistenceType;
-import com.yzanghelini.model.DAO.DataBasePersistence;
+
 import com.yzanghelini.model.DAO.PersistenceFactory;
 import com.yzanghelini.model.DTO.Usuario;
 
 public class UsuarioBO {
 
 //	List<UsuarioDTO> users = new ArrayList<>(); => ArrayList
-// private DataPersistence<Usuario> dataPersistence;
-private DataBasePersistence<Usuario> dataPersistence;
+private DataPersistence<Usuario> dataPersistence;
 
-
-
-// public UsuarioBO(PersistenceType persistenceType) {
-//     this.dataPersistence = PersistenceFactory.setDataPersistence(Usuario.class, persistenceType);
-    
-// }
 
 public UsuarioBO(PersistenceType persistenceType) {
-    this.dataPersistence = (DataBasePersistence<Usuario>) PersistenceFactory.setDataPersistence(Usuario.class, persistenceType);
+    this.dataPersistence = PersistenceFactory.setDataPersistence(Usuario.class, persistenceType);
 }
+
+// public UsuarioBO(PersistenceType persistenceType) {
+//     this.dataPersistence = (DataBasePersistence<Usuario>) PersistenceFactory.setDataPersistence(Usuario.class, persistenceType);
+// }
 
 public void criarUsuario(Usuario usuario) {
     if (usuario.getId() <= 0) {

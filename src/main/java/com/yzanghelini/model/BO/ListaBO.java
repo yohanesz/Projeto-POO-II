@@ -4,12 +4,20 @@ import java.util.List;
 
 import com.yzanghelini.interfaces.DataPersistence;
 import com.yzanghelini.interfaces.PersistenceType;
+
 import com.yzanghelini.model.DAO.PersistenceFactory;
 import com.yzanghelini.model.DTO.Lista;
+
 
 public class ListaBO {
 
     private DataPersistence<Lista> dataPersistence;
+
+
+
+    // public ListaBO(PersistenceType persistenceType) {
+    //     this.dataPersistence = (DataBasePersistence<Lista>) PersistenceFactory.setDataPersistence(Lista.class, persistenceType);
+    // }
 
     public ListaBO(PersistenceType persistenceType) {
         this.dataPersistence = PersistenceFactory.setDataPersistence(Lista.class, persistenceType);
@@ -39,6 +47,7 @@ public class ListaBO {
         return dataPersistence.readAll();
     }
 
-    
-    
+    public int getIdListaByName(String tituloLista) {
+        return dataPersistence.getIdByName(tituloLista);
+    }
 }

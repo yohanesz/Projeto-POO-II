@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<items>
+    <item xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="card">
+        <dataEntrega>30/02/2024</dataEntrega>
+        <dataInicial>29/02/2024</dataInicial>
+        <horaEntrega>09:00</horaEntrega>
+        <id>1</id>
+        <id_lista>1</id_lista>
+        <titulo_card>Projeto POO</titulo_card>
+    </item>
+    <item xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="card">
+        <dataEntrega>05/05/2024</dataEntrega>
+        <dataInicial>29/02/2024</dataInicial>
+        <horaEntrega>08:00</horaEntrega>
+        <id>2</id>
+        <id_lista>2</id_lista>
+        <titulo_card>Prova Calculo</titulo_card>
+    </item>
+</items>

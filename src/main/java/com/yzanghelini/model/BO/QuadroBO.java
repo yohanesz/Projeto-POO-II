@@ -7,19 +7,23 @@ import com.yzanghelini.interfaces.PersistenceType;
 import com.yzanghelini.model.DAO.PersistenceFactory;
 import com.yzanghelini.model.DTO.Quadro;
 
+
 public class QuadroBO {
+
     private DataPersistence<Quadro> dataPersistence;
 
     public QuadroBO(PersistenceType persistenceType) {
         this.dataPersistence = PersistenceFactory.setDataPersistence(Quadro.class, persistenceType);
 
     }
+    // public QuadroBO(PersistenceType persistenceType) {
+    //     this.dataPersistence = (DataBasePersistence<Quadro>) PersistenceFactory.setDataPersistence(Quadro.class, persistenceType);
+    // }
     
     public void criarQuadro(Quadro quadro) {
         if(quadro.getId() <= 0) {
             quadro.setId(dataPersistence.getNextId());
         }
-
         dataPersistence.create(quadro);
     }
 
@@ -34,11 +38,17 @@ public class QuadroBO {
 
     public void deletarQuadro(int id) {
         dataPersistence.delete(id);
+
+        
     }
 
     public List<Quadro> listarQuadros() {
         return dataPersistence.readAll();
     }
 
+    public int getIdQuadroByName(String tituloQuadro) {
+        return dataPersistence.getIdByName(tituloQuadro);
+    }
+    
 
 }

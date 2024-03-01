@@ -10,10 +10,10 @@ public class PersistenceFactory {
       switch (format) {
         case DATABASE:
           return new DataBasePersistence<>(clazz);
-        // case JSON:
-        //   return new JsonPersistence<>(clazz);
-        // case XML:
-        //   return new XmlPersistence<>(clazz);
+        case JSON:
+          return new JsonPersistence<>(clazz);
+        case XML:
+          return new XmlPersistence<>(clazz);
         default:
           throw new IllegalArgumentException("Formato de persistência inválido: " + format);
         }

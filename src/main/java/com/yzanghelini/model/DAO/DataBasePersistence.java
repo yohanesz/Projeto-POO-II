@@ -12,7 +12,8 @@ import java.util.List;
 
 import com.yzanghelini.interfaces.DataPersistence;
 import com.yzanghelini.interfaces.DefaultEntitiesInterface;
-import com.yzanghelini.model.DAO.ConexaoDB;
+import com.yzanghelini.model.DTO.Card;
+
 
 public class DataBasePersistence<T extends DefaultEntitiesInterface> implements DataPersistence<T> {
 
@@ -29,54 +30,49 @@ public class DataBasePersistence<T extends DefaultEntitiesInterface> implements 
     }
   }
 
-    @Override
-    public void create(T object) {
-        String nomeTabela = clazz.getSimpleName().toLowerCase();
-        String sql = "INSERT INTO " + nomeTabela + " (";
-        String values = " VALUES (";
-        // retorna todos os campos declarados da classe (privated, public)
-        Field[] fields = clazz.getDeclaredFields();
+  @Override
+  public void create(T object) {
+    String tableName = clazz.getSimpleName().toLowerCase();
+    String sql = "INSERT INTO " + tableName + " (";
+    String values = " VALUES (";
+    Field[] fields = clazz.getDeclaredFields();
 
-        List<Object> valuesList = new ArrayList<>();
-        for (Field field : fields) {
-            String fieldName = field.getName();
-
-            try{
-                Object value = field.get(object);
-
-                if ((value instanceof Integer && (Integer) value == 0) || (value instanceof String && ((String) value).isEmpty())) {
-                    continue;
-                }
-                sql = sql + fieldName + ", ";
-                values = values + "?, ";
-                valuesList.add(value);
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            }
-            if (sql.endsWith(", ")) {
-                sql = sql.substring(0, sql.length() - 2);
-            }
-              if (values.endsWith(", ")) {
-                values = values.substring(0, values.length() - 2);
-            }
-
-            sql = sql + ")";
-            values = values + ")";
-            sql = sql + values;
-
-            try (PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-                int paramIndex = 1;
-            for (Object value : valuesList) {
-                statement.setObject(paramIndex++, value);
-            }
-
-            statement.executeUpdate();
-            } catch (SQLException e) {
-            e.printStackTrace();
-            }
-
+    List<Object> valuesList = new ArrayList<>();
+    for (Field field : fields) {
+      field.setAccessible(true);
+      String fieldName = field.getName();
+      try {
+        Object value = field.get(object);
+        if ((value instanceof Integer && (Integer) value == 0)
+            || (value instanceof String && ((String) value).isEmpty())) {
+          continue;
         }
+        sql += fieldName + ", ";
+        values += "?, ";
+        valuesList.add(value);
+      } catch (IllegalAccessException e) {
+        e.printStackTrace();
+      }
     }
+    if (sql.endsWith(", ")) {
+      sql = sql.substring(0, sql.length() - 2);
+    }
+    if (values.endsWith(", ")) {
+      values = values.substring(0, values.length() - 2);
+    }
+    sql += ")";
+    values += ")";
+    sql += values;
+    try (PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+      int paramIndex = 1;
+      for (Object value : valuesList) {
+        statement.setObject(paramIndex++, value);
+      }
+      statement.executeUpdate();
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+  }
 
 
     @Override
@@ -251,5 +247,28 @@ public class DataBasePersistence<T extends DefaultEntitiesInterface> implements 
     
         return new Object[] {idUsuario, autenticado};
     }
+
+      @Override
+      public int getIdByName(String name) {
+        String nomeTabela = clazz.getSimpleName().toLowerCase();
+        int id = -1;
+    
+        try {
+            String sql = "SELECT id_" + nomeTabela + " FROM " + nomeTabela + " WHERE " + "titulo_" + nomeTabela + " = ?";
+            try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+                preparedStatement.setString(1, name);
+                try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                    if (resultSet.next()) {
+                        id = resultSet.getInt("id_" + nomeTabela);
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    
+        return id;
+    }
+    
 
     }

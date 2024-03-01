@@ -8,8 +8,10 @@ public class Usuario implements DefaultEntitiesInterface {
     private int id_usuario;
     private String nome;
 	private String senha;
-    // private List<Quadro> quadros;
 
+    public Usuario() {
+        
+    }
 
     public Usuario(String nome, String senha) {
         this.nome = nome;
@@ -40,6 +42,12 @@ public class Usuario implements DefaultEntitiesInterface {
 
         return "Usuario [id_usuario =" + id_usuario + ", nome=" + nome + ", senha=" + senha + "]";
     }
+
+    @Override
+    public String getTitulo() {
+       return nome;
+    }
+
     // public List<Quadro> getQuadros() {
     //     return quadros;
     // }

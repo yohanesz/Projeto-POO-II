@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<items>
+    <item xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="quadro">
+        <id>1</id>
+        <id_usuario>1</id_usuario>
+        <titulo_quadro>Pessoal</titulo_quadro>
+    </item>
+</items>

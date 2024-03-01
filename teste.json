@@ -1,0 +1,10 @@
+{
+  "nome": "matheus",
+  "idade": 30,
+  "esta_trabalhando": true,
+  "hobbies": [1, "asd", 12],
+  "testeObjeto": {
+    "nome": "yohanes",
+    "senha": "1234"
+  }
+}

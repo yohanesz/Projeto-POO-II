@@ -7,12 +7,16 @@ public class Quadro implements DefaultEntitiesInterface{
 
     private int id_usuario;
 	private int id_quadro;
-    private String tituloQuadro;
+    private String titulo_quadro;
 	// private List<Lista> listas;
 
-    public Quadro(int id_usuario, String tituloQuadro) {
+    public Quadro() {
+       
+    }
+
+    public Quadro(int id_usuario, String titulo_quadro) {
         this.id_usuario = id_usuario;
-        this.tituloQuadro = tituloQuadro;
+        this.titulo_quadro = titulo_quadro;
     }
 
     public int getId_usuario() {
@@ -28,12 +32,18 @@ public class Quadro implements DefaultEntitiesInterface{
     public void setId(int id_quadro) {
         this.id_quadro = id_quadro;
     }
-    public String getTituloQuadro() {
-        return tituloQuadro;
+    public String getTitulo_quadro() {
+        return titulo_quadro;
     }
-    public void setTituloQuadro(String tituloQuadro) {
-        this.tituloQuadro = tituloQuadro;
+    public void setTitulo_quadro(String titulo_quadro) {
+        this.titulo_quadro = titulo_quadro;
     }
-   
+
+    @Override
+    public String getTitulo() {
+        return titulo_quadro;
+    }
+
+ 
     
 }

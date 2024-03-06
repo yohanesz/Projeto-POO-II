@@ -1,20 +1,20 @@
-// package com.yzanghelini.view;
+package com.yzanghelini.view;
 
-// public class UserInfoView {
+public class UserInfoView {
     
-//     private String nomeUsuario;
-//     private String senhaUsuario;
+    private String nomeUsuario;
+    private String senhaUsuario;
 
-//     public UserInfoView(String nomeUsuario, String senhaUsuario) {
-//         this.nomeUsuario = nomeUsuario;
-//         this.senhaUsuario = senhaUsuario;
-//     }
+    public UserInfoView(String nomeUsuario, String senhaUsuario) {
+        this.nomeUsuario = nomeUsuario;
+        this.senhaUsuario = senhaUsuario;
+    }
 
-//     public String getNomeUsuario() {
-//         return nomeUsuario;
-//     }
+    public String getNomeUsuario() {
+        return nomeUsuario;
+    }
 
-//     public String getSenhaUsuario() {
-//         return senhaUsuario;
-//     }
-// }
+    public String getSenhaUsuario() {
+        return senhaUsuario;
+    }
+}

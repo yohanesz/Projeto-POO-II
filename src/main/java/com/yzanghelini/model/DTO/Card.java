@@ -96,6 +96,12 @@ public class Card implements DefaultEntitiesInterface {
         return titulo_card;
     }
 
+    @Override
+    public String toString() {
+        return "Card [id_lista=" + id_lista + ", id_card=" + id_card + ", titulo_card=" + titulo_card + ", dataInicial="
+                + dataInicial + ", dataEntrega=" + dataEntrega + ", horaEntrega=" + horaEntrega + "]";
+    }
+
  
     
 }

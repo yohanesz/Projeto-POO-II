@@ -44,6 +44,7 @@ public class ListaBO {
     }
 
     public List<Lista> listarListas() {
+
         return dataPersistence.readAll();
     }
 

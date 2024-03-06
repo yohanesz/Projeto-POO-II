@@ -45,6 +45,11 @@ public class Lista implements DefaultEntitiesInterface{
         return titulo_lista;
     }
 
+    @Override
+    public String toString() {
+        return "Lista [id_quadro=" + id_quadro + ", id_lista=" + id_lista + ", titulo_lista=" + titulo_lista + "]";
+    }
+
   
 
 

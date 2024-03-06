@@ -8,7 +8,7 @@ public class Quadro implements DefaultEntitiesInterface{
     private int id_usuario;
 	private int id_quadro;
     private String titulo_quadro;
-	// private List<Lista> listas;
+
 
     public Quadro() {
        
@@ -42,6 +42,12 @@ public class Quadro implements DefaultEntitiesInterface{
     @Override
     public String getTitulo() {
         return titulo_quadro;
+    }
+
+    @Override
+    public String toString() {
+        return "Quadro [id_usuario=" + id_usuario + ", id_quadro=" + id_quadro + ", titulo_quadro=" + titulo_quadro
+                + "]";
     }
 
  

@@ -1,7 +1,5 @@
 package com.yzanghelini.view;
 
-import java.sql.Connection;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -9,7 +7,6 @@ import com.yzanghelini.interfaces.PersistenceType;
 import com.yzanghelini.model.BO.CardBO;
 import com.yzanghelini.model.BO.QuadroBO;
 import com.yzanghelini.model.BO.UsuarioBO;
-import com.yzanghelini.model.DAO.ConexaoDB;
 import com.yzanghelini.model.BO.ListaBO;
 import com.yzanghelini.model.DTO.Card;
 import com.yzanghelini.model.DTO.Quadro;
@@ -40,11 +37,9 @@ public class Main {
         // // => Cadastrar novo usuário
         usuarioBO.criarUsuario(usuario);
 
-        viewGeral vW = new viewGeral();
-
         do {
 
-            vW.limparConsole();
+            viewGeral.limparConsole();
             // login
             System.out.print("Insira o nome: ");
             String nomeUsuario = scanner.nextLine();
@@ -58,10 +53,10 @@ public class Main {
             verificador = (boolean) resultado[1];
 
             if (!verificador) {
-                vW.limparConsole();
-                vW.showLinha();
+                viewGeral.limparConsole();
+                viewGeral.showLinha();
                 System.out.println("Senha incorreta, tente novamente.");
-                vW.showLinha();
+                viewGeral.showLinha();
                 scanner.nextLine();
             }
 
